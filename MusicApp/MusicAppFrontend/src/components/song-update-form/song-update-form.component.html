@@ -1,0 +1,54 @@
+<h2>Update a song</h2>
+<form [formGroup]="songUpdateForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input
+      id="title"
+      name="title"
+      formControlName="title"
+      type="text"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="releaseYear">Release year:</label>
+    <input
+      id="releaseYear"
+      name="releaseYear"
+      formControlName="releaseYear"
+      type="number"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="views">Views:</label>
+    <input
+      id="views"
+      name="views"
+      formControlName="views"
+      type="text"
+      class="form-control"
+      required
+      />
+  </div>
+
+  <div class="form-group">
+    <label for="genre">Genre:</label>
+    <input
+      id="genre"
+      name="genre"
+      formControlName="genre"
+      type="text"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="songUpdateForm.invalid">
+    Update
+  </button>
+</form>

@@ -1,0 +1,22 @@
+  <div *ngFor="let song of songs">
+    <div style="display: flex; gap: 10px">
+      <div style="display: flex; flex-direction: column">
+        <p>title: {{song.title}}</p>
+        <p>release year: {{song.releaseYear}}</p>
+        <p>views: {{song.views}}</p>
+        <p>genre: {{song.genre}}</p>
+
+      </div>
+      <button (click)="deleteSong(song.id)" type="button">
+        Delete
+      </button>
+      <a [routerLink]="['/song', song.id]">
+        Update
+      </a>
+    </div>
+  </div>
+
+<ng-template #loading>
+  <p>Loading songs...</p>
+</ng-template>
+

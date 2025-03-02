@@ -1,0 +1,10 @@
+.deletebutton {
+  color: red;
+  background-color: black;
+}
+
+.updatebutton {
+  color: white;
+  background-color: #6d008b;
+  border-color: #000000;
+}

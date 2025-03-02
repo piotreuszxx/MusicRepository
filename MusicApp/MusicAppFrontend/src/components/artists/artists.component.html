@@ -1,0 +1,36 @@
+<div style="border: 1px solid black; padding: 24px; display: flex; gap: 80px">
+
+  <div *ngIf="artists; else loading">
+    <h2>Artists</h2>
+    <div *ngFor="let artist of artists">
+      <div style="display: flex; gap: 10px">
+        <div style="display: flex; flex-direction: column">
+          <p>name: {{artist.name}}</p>
+          <p>surname: {{artist.surname}}</p>
+          <p>age: {{artist.age}}</p>
+          <p>stagename: {{artist.stagename}}</p>
+        </div>
+        <!-- buttony> <!-->
+        <button (click)="deleteArtist(artist.id)" type="button" class="deletebutton">
+          Delete
+        </button>
+        <a [routerLink]="['/artist', artist.id]" class="updatebutton">
+          Update
+        </a>
+
+        <h3>Songs</h3>
+       <app-songs [artistId]="artist.id"></app-songs>
+
+      </div>
+    </div>
+  </div>
+  <!-- app artist create form> <!-->
+  <app-artist-create-form></app-artist-create-form>
+  <app-song-create-form></app-song-create-form>
+
+  <router-outlet></router-outlet>
+</div>
+
+<ng-template #loading>
+  <p>Loading artists...</p>
+</ng-template>

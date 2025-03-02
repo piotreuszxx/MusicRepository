@@ -1,0 +1,87 @@
+### Get all artists
+GET http://localhost:8080/api/artists
+Accept: application/json
+
+### Get specific artist by ID
+@artistId=0d3ec02c-2bbd-4096-9c1b-17008e8c76c3
+GET http://localhost:8080/api/artists/{{artistId}}
+Accept: application/json
+
+### Get all songs by a specific artist
+GET http://localhost:8080/api/artists/{{artistId}}/songs
+Accept: application/json
+
+
+### Create a new artist
+@newArtistName="Ken Carson"
+POST http://localhost:8080/api/artists
+Content-Type: application/json
+
+{
+  "name": "Kenyatta",
+  "surname": "Frazier",
+  "age": 30,
+  "stagename": {{newArtistName}}
+}
+
+### Update an artist by ID
+PATCH http://localhost:8080/api/artists/{{artistId}}
+Content-Type: application/json
+
+{
+  "name": "Szymon",
+  "surname": "Budziak",
+  "age": 45,
+  "stagename": "Vert"
+}
+
+### Delete an artist by ID
+DELETE http://localhost:8080/api/artists/{{artistId}}
+
+############################################################
+############################################################
+############################################################
+
+### Get all songs
+GET http://localhost:8080/api/songs
+Accept: application/json
+
+### Get specific song by ID
+@songId=d6ff1eb5-41f7-499b-bfca-1cd3cf670433
+GET http://localhost:8080/api/songs/{{songId}}
+Accept: application/json
+
+### Create a new song
+@newArtistId=cd562e07-e69d-48d4-84a5-f7baebb815e1
+POST http://localhost:8080/api/songs
+Content-Type: application/json
+
+{
+  "title": "Change",
+  "releaseYear": 2023,
+  "genre": "Hip-Hop",
+  "views": 1500,
+  "artistId": "{{newArtistId}}",
+  "artistStagename": {{newArtistName}}
+}
+
+### Update a song by ID
+@newSongId=19ca3528-35ac-401e-bd9f-d2ed984aebfb
+PATCH http://localhost:8080/api/songs/{{newSongId}}
+Content-Type: application/json
+
+{
+  "title": "Never Change",
+  "releaseYear": 2023,
+  "genre": "Rock",
+  "views": 2000,
+  "artistId": "{{newArtistId}}",
+  "artistStagename": {{newArtistName}}
+}
+
+### Delete a song by ID
+DELETE http://localhost:8080/api/songs/{{newSongId}}
+
+### Get all songs by a specific artist (no songs)
+GET http://localhost:8080/api/artists/{{newArtistId}}/songs
+Accept: application/json
